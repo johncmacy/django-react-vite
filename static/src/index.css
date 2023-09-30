@@ -25,7 +25,7 @@
   }
 
   .navbar .active {
-    @apply font-bold;
+    @apply font-bold text-red-600;
   }
 
   a {

@@ -1,6 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom"
 import { currentUser } from "./utils/current_user/currentUser"
-import "../css/styles.css"
 
 export default function App() {
   return (
