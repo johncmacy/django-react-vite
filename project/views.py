@@ -11,7 +11,11 @@ User = get_user_model()
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Permission
-        fields = "__all__"
+        fields = [
+            "name",
+            "content_type",
+            "codename",
+        ]
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -19,7 +23,10 @@ class GroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Group
-        fields = "__all__"
+        fields = [
+            "name",
+            "permissions",
+        ]
 
 
 class CurrentUserSerializer(serializers.ModelSerializer):
@@ -34,9 +41,11 @@ class CurrentUserSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             "id",
+            "username",
             "first_name",
             "last_name",
             "full_name",
+            "is_authenticated",
             "groups",
         ]
 
@@ -50,7 +59,7 @@ def get_serialized_current_user(request):
 
 
 @login_required
-def core(request, *args, **kwargs):
+def index(request, *args, **kwargs):
     return render(
-        request, "core.html", {"current_user": get_serialized_current_user(request)}
+        request, "index.html", {"current_user": get_serialized_current_user(request)}
     )

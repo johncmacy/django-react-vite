@@ -1,9 +1,8 @@
 import os
 from pathlib import Path
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-import environ
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
@@ -12,12 +11,9 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = env("DEBUG")
 
-# HEROKU_APP_NAME = env('HEROKU_APP_NAME', default='django-react')
-
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    # f'{HEROKU_APP_NAME}.herokuapp.com',
 ]
 
 INSTALLED_APPS = [
@@ -27,6 +23,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_vite",
     "rest_framework",
     "users.apps.UsersConfig",
     "core.apps.CoreConfig",
@@ -93,7 +90,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATICFILES_DIRS = ["project/static"]
+DJANGO_VITE_ASSETS_PATH = BASE_DIR / "project" / "static"
+DJANGO_VITE_DEV_MODE = DEBUG
+
+STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
 STATIC_ROOT = "static"
 STATIC_URL = "/static/"
 

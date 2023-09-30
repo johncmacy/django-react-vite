@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{% load django_vite %}
 
 {% block title %}Index{% endblock title %}
 
+{% block head %}
+    {% vite_asset 'main.tsx' %}
+{% endblock %}
+
 {% block contents %}
-<div class="container mt-5">
-    <h1>Index</h1>
-</div>
+    <div id="root"></div>
+
+    {{ current_user|json_script:"current_user" }}
 {% endblock %}

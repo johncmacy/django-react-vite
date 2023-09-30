@@ -3,101 +3,103 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    font-family: "Inter", sans-serif;
+  }
 
-    body {
-        font-family: 'Inter', sans-serif;
-    }
-    
-    code, pre, .text-monospace {
-        font-family: 'JetBrains Mono', 'Consolas', monospace !important;
-    }
+  code,
+  pre,
+  .text-monospace {
+    font-family: "JetBrains Mono", "Consolas", monospace !important;
+  }
 
-    .navbar {
-        @apply sticky top-0 flex justify-between py-2 px-4;
-        height: 40px;
-        background-color: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(2px);
-    }
+  .navbar {
+    @apply sticky top-0 flex justify-between py-2 px-4;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+  }
 
-    .navbar > div {
-        @apply flex gap-4;
-    }
+  .navbar > div {
+    @apply flex gap-4;
+  }
 
-    a {
-        @apply text-blue-500;
-        @apply hover:text-blue-900;
-    }
+  .navbar .active {
+    @apply font-bold;
+  }
 
-    main {
-        @apply p-4;
-    }
+  a {
+    @apply text-blue-500;
+    @apply hover:text-blue-900;
+  }
 
-    .container {
-        @apply mx-auto;
-    }
+  main {
+    @apply p-4;
+  }
 
-    h1, h2, h3, h4 {
-        @apply font-bold;
-    }
+  .container {
+    @apply mx-auto;
+  }
 
-    h1 {
-        @apply text-xl;
-    }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+  }
 
-    h2 {
-        @apply text-lg;
-    }
+  h1 {
+    @apply text-xl;
+  }
 
-    .table-container {
-        @apply overflow-x-auto;
-    }
+  h2 {
+    @apply text-lg;
+  }
 
-    table.table {
-        @apply w-full;
-    }
+  .table-container {
+    @apply overflow-x-auto;
+  }
 
-    table.table-striped {
+  table.table {
+    @apply w-full;
+  }
 
-    }
+  table.table-striped {
+  }
 
-    table.table-bordered {
-        @apply border border-zinc-300;
-    }
+  table.table-bordered {
+    @apply border border-zinc-300;
+  }
 
-    table.table-bordered th,
-    table.table-bordered td {
-        @apply border border-zinc-300;
-    }
+  table.table-bordered th,
+  table.table-bordered td {
+    @apply border border-zinc-300;
+  }
 
-    table.table-hover tr {
-        @apply hover:bg-zinc-100;
-    }
+  table.table-hover tr {
+    @apply hover:bg-zinc-100;
+  }
 
-    table.table th,
-    table.table td {
-        @apply py-1 px-2;
-    }
+  table.table th,
+  table.table td {
+    @apply py-1 px-2;
+  }
 
-    th {
-        @apply font-bold text-left;
-    }
-
+  th {
+    @apply font-bold text-left;
+  }
 }
 
 @layer components {
-
-    .btn {
-        @apply py-2 px-4 rounded;
-        @apply bg-zinc-200 text-zinc-800;
-        @apply hover:bg-zinc-300;
-    }
-
+  .btn {
+    @apply py-2 px-4 rounded;
+    @apply bg-zinc-200 text-zinc-800;
+    @apply hover:bg-zinc-300;
+  }
 }
 
 @layer utilities {
-
-    .text-danger {
-        @apply text-red-700;
-    }
-
+  .text-danger {
+    @apply text-red-700;
+  }
 }
